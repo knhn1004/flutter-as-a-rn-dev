@@ -3,7 +3,14 @@ import 'package:flutter_as_a_rn_dev/models/category_collection.dart';
 import 'package:flutter_as_a_rn_dev/screens/home/footer.dart';
 import 'package:flutter_as_a_rn_dev/screens/home/grid_view_items.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String layoutType = 'grid';
+
   CategoryCollection categoryCollection = CategoryCollection();
 
   @override
@@ -12,9 +19,19 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         actions: [
           TextButton(
-            onPressed: () {},
-            child: const Text('Edit',
-                style: TextStyle(
+            onPressed: () {
+              if (layoutType == 'grid') {
+                setState(() {
+                  layoutType = 'list';
+                });
+              } else {
+                setState(() {
+                  layoutType = 'grid';
+                });
+              }
+            },
+            child: Text(layoutType == 'grid' ? 'Edit' : 'Done',
+                style: const TextStyle(
                   color: Colors.white,
                 )),
           )
