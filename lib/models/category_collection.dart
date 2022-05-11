@@ -1,10 +1,12 @@
+import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_as_a_rn_dev/common/widgets/category_icon.dart';
 import 'package:flutter_as_a_rn_dev/models/category.dart';
 
 class CategoryCollection {
-  final List<Category> categories = [
+  final List<Category> _categories = [
     Category(
         id: 'today',
         name: 'Today',
@@ -32,4 +34,14 @@ class CategoryCollection {
             bgColor: CupertinoColors.activeOrange,
             iconData: CupertinoIcons.flag_fill)),
   ];
+
+  UnmodifiableListView<Category> get categories =>
+      UnmodifiableListView(_categories);
+  Category removeItem(index) {
+    return _categories.removeAt(index);
+  }
+
+  void insert(index, element) {
+    _categories.insert(index, element);
+  }
 }
