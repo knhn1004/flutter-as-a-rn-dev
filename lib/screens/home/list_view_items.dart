@@ -12,10 +12,21 @@ class ListViewItems extends StatefulWidget {
 class _ListViewItemsState extends State<ListViewItems> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return ReorderableListView(
+      onReorder: ((int oldIndex, int newIndex) {
+        //print('reordered list')
+        if (newIndex > oldIndex) {
+          newIndex -= 1;
+        }
+        final item = widget.categoryCollection.categories.removeAt(oldIndex);
+        setState(() {
+          widget.categoryCollection.categories.insert(newIndex, item);
+        });
+      }),
       children: widget.categoryCollection.categories
           .map(
             (cat) => ListTile(
+              key: UniqueKey(),
               tileColor: Colors.grey[800],
               leading: Container(
                   decoration: const BoxDecoration(
