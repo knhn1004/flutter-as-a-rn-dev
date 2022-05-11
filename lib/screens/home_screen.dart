@@ -19,8 +19,19 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: Container(height: 100, color: Colors.orange),
-            ),
+                child: GridView.count(
+              crossAxisCount: 2,
+              childAspectRatio: 16 / 9,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              padding: EdgeInsets.all(10),
+              children: [
+                Container(color: Colors.blue),
+                Container(color: Colors.orange),
+                Container(color: Colors.white),
+                Container(color: Colors.green),
+              ],
+            )),
             Container(
                 padding: EdgeInsets.all(10),
                 child: Row(
