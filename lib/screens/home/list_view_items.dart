@@ -26,14 +26,27 @@ class _ListViewItemsState extends State<ListViewItems> {
       children: widget.categoryCollection.categories
           .map(
             (cat) => ListTile(
+              onTap: () {
+                // toggle checkbox
+                setState(() {
+                  cat.toggleCheckbox();
+                });
+              },
               key: UniqueKey(),
               tileColor: Colors.grey[800],
               leading: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.blueAccent,
+                  decoration: BoxDecoration(
+                    color:
+                        cat.isChecked ? Colors.blueAccent : Colors.transparent,
                     shape: BoxShape.circle,
+                    border: Border.all(
+                        color: cat.isChecked ? Colors.blueAccent : Colors.grey,
+                        width: 2),
                   ),
-                  child: const Icon(Icons.check)),
+                  child: Icon(
+                    Icons.check,
+                    color: cat.isChecked ? Colors.white : Colors.transparent,
+                  )),
               title: Row(
                 children: [
                   cat.icon,

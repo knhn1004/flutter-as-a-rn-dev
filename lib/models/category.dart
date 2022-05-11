@@ -3,7 +3,7 @@ import 'package:flutter_as_a_rn_dev/common/widgets/category_icon.dart';
 class Category {
   String id;
   String name;
-  bool? isChecked;
+  bool isChecked;
   final CategoryIcon icon;
 
   Category({
@@ -12,4 +12,8 @@ class Category {
     required this.name,
     this.isChecked = true,
   });
+
+  void toggleCheckbox() {
+    isChecked = !isChecked!;
+  }
 }

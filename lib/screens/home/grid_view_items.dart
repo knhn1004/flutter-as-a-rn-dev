@@ -1,13 +1,14 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_as_a_rn_dev/models/category.dart';
 import 'package:flutter_as_a_rn_dev/models/category_collection.dart';
 
 class GridViewItems extends StatelessWidget {
   const GridViewItems({
     Key? key,
-    required this.categoryCollection,
+    required this.categories,
   }) : super(key: key);
 
-  final CategoryCollection categoryCollection;
+  final List<Category> categories;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class GridViewItems extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
         padding: const EdgeInsets.all(10),
-        children: categoryCollection.categories
+        children: categories
             .map(
               (cat) => Container(
                 decoration: BoxDecoration(
