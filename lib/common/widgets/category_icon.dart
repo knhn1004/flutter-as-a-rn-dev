@@ -4,7 +4,8 @@ class CategoryIcon extends StatelessWidget {
   final dynamic bgColor;
   final IconData iconData;
 
-  CategoryIcon({required this.bgColor, required this.iconData});
+  const CategoryIcon({Key? key, required this.bgColor, required this.iconData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

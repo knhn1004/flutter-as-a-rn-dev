@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_as_a_rn_dev/models/category_collection.dart';
 
-const LIST_VIEW_HEIGHT = 70.0;
+const listViewHeight = 70.0;
 
 class ListViewItems extends StatefulWidget {
   final CategoryCollection categoryCollection;
-  const ListViewItems({required this.categoryCollection});
+  const ListViewItems({Key? key, required this.categoryCollection})
+      : super(key: key);
 
   @override
   State<ListViewItems> createState() => _ListViewItemsState();
@@ -14,8 +15,8 @@ class ListViewItems extends StatefulWidget {
 class _ListViewItemsState extends State<ListViewItems> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.categoryCollection.categories.length * LIST_VIEW_HEIGHT,
+    return SizedBox(
+      height: widget.categoryCollection.categories.length * listViewHeight,
       //color: Colors.white,
       child: ReorderableListView(
         onReorder: ((int oldIndex, int newIndex) {
@@ -32,7 +33,7 @@ class _ListViewItemsState extends State<ListViewItems> {
             .map(
               (cat) => SizedBox(
                 key: UniqueKey(),
-                height: LIST_VIEW_HEIGHT,
+                height: listViewHeight,
                 child: ListTile(
                   onTap: () {
                     // toggle checkbox

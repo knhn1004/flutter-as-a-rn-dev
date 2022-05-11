@@ -5,6 +5,8 @@ import 'package:flutter_as_a_rn_dev/screens/home/grid_view_items.dart';
 import 'package:flutter_as_a_rn_dev/screens/home/list_view_items.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -38,31 +40,29 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Expanded(
-                child: AnimatedCrossFade(
-              firstChild: GridViewItems(
-                  categories: categoryCollection.selectedCategories),
-              secondChild: ListViewItems(
-                categoryCollection: categoryCollection,
+      body: Column(
+        children: [
+          Expanded(
+              child: AnimatedCrossFade(
+            firstChild: GridViewItems(
+                categories: categoryCollection.selectedCategories),
+            secondChild: ListViewItems(
+              categoryCollection: categoryCollection,
+            ),
+            crossFadeState: layoutType == 'grid'
+                ? CrossFadeState.showFirst
+                : CrossFadeState.showSecond,
+            duration: const Duration(milliseconds: 300),
+          )
+              //layoutType == 'grid'
+              //    ? GridViewItems(
+              //        categories: categoryCollection.selectedCategories)
+              //    : ListViewItems(
+              //        categoryCollection: categoryCollection,
+              //      )),
               ),
-              crossFadeState: layoutType == 'grid'
-                  ? CrossFadeState.showFirst
-                  : CrossFadeState.showSecond,
-              duration: const Duration(milliseconds: 300),
-            )
-                //layoutType == 'grid'
-                //    ? GridViewItems(
-                //        categories: categoryCollection.selectedCategories)
-                //    : ListViewItems(
-                //        categoryCollection: categoryCollection,
-                //      )),
-                ),
-            Footer(),
-          ],
-        ),
+          const Footer(),
+        ],
       ),
     );
   }

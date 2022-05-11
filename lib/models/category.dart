@@ -14,6 +14,6 @@ class Category {
   });
 
   void toggleCheckbox() {
-    isChecked = !isChecked!;
+    isChecked = !isChecked;
   }
 }
