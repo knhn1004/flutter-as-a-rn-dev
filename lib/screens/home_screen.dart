@@ -21,7 +21,22 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: Container(height: 100, color: Colors.orange),
             ),
-            Container(color: Colors.blue),
+            Container(
+                padding: EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton.icon(
+                      icon: Icon(Icons.add_circle),
+                      onPressed: () {},
+                      label: Text('New Reminder'),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text('Add List'),
+                    ),
+                  ],
+                )),
           ],
         ),
       ),
