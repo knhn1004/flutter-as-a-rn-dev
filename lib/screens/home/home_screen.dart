@@ -42,12 +42,24 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Expanded(
-                child: layoutType == 'grid'
-                    ? GridViewItems(
-                        categories: categoryCollection.selectedCategories)
-                    : ListViewItems(
-                        categoryCollection: categoryCollection,
-                      )),
+                child: AnimatedCrossFade(
+              firstChild: GridViewItems(
+                  categories: categoryCollection.selectedCategories),
+              secondChild: ListViewItems(
+                categoryCollection: categoryCollection,
+              ),
+              crossFadeState: layoutType == 'grid'
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              duration: const Duration(milliseconds: 300),
+            )
+                //layoutType == 'grid'
+                //    ? GridViewItems(
+                //        categories: categoryCollection.selectedCategories)
+                //    : ListViewItems(
+                //        categoryCollection: categoryCollection,
+                //      )),
+                ),
             Footer(),
           ],
         ),

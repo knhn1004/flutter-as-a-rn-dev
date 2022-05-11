@@ -1,6 +1,5 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_as_a_rn_dev/models/category.dart';
-import 'package:flutter_as_a_rn_dev/models/category_collection.dart';
 
 class GridViewItems extends StatelessWidget {
   const GridViewItems({
@@ -13,6 +12,7 @@ class GridViewItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+        shrinkWrap: true,
         crossAxisCount: 2,
         childAspectRatio: 16 / 9,
         crossAxisSpacing: 10,
