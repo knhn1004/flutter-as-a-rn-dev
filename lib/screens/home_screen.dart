@@ -15,7 +15,9 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Container(),
+      body: Container(
+        child: Text('Hello'),
+      ),
     );
   }
 }
