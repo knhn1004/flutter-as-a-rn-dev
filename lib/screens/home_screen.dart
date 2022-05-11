@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {},
-            child: Text('Edit',
+            child: const Text('Edit',
                 style: TextStyle(
                   color: Colors.white,
                 )),
@@ -32,13 +32,13 @@ class HomeScreen extends StatelessWidget {
                     childAspectRatio: 16 / 9,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     children: categories
                         .map(
                           (cat) => Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color(0xFF1A191D)),
+                                color: const Color(0xFF1A191D)),
                             child: Padding(
                                 padding: const EdgeInsets.all(10),
                                 child: Column(
@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: [
+                                        children: const [
                                           Icon(Icons.email),
                                           Text('0'),
                                         ],
@@ -61,18 +61,18 @@ class HomeScreen extends StatelessWidget {
                         )
                         .toList())),
             Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton.icon(
-                      icon: Icon(Icons.add_circle),
+                      icon: const Icon(Icons.add_circle),
                       onPressed: () {},
-                      label: Text('New Reminder'),
+                      label: const Text('New Reminder'),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('Add List'),
+                      child: const Text('Add List'),
                     ),
                   ],
                 )),
