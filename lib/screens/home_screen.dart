@@ -16,7 +16,14 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: Text('Hello'),
+        child: Column(
+          children: [
+            Expanded(
+              child: Container(height: 100, color: Colors.orange),
+            ),
+            Container(color: Colors.blue),
+          ],
+        ),
       ),
     );
   }
