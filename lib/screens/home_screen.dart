@@ -31,9 +31,21 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       color: Color(0xFF1A191D)),
                 ),
-                Container(color: Colors.orange),
-                Container(color: Colors.white),
-                Container(color: Colors.green),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xFF1A191D)),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xFF1A191D)),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xFF1A191D)),
+                ),
               ],
             )),
             Container(

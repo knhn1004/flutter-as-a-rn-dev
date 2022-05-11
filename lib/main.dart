@@ -14,10 +14,10 @@ class App extends StatelessWidget {
         '/': (context) => HomeScreen(),
       },
       theme: ThemeData(
-        //scaffoldBackgroundColor: Colors.black,
-        //appBarTheme: AppBarTheme(
-        //  color: Colors.black,
-        //),
+        scaffoldBackgroundColor: Colors.black,
+        appBarTheme: AppBarTheme(
+          color: Colors.black,
+        ),
         brightness: Brightness.dark,
       ),
     );
