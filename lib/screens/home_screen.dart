@@ -1,12 +1,36 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_as_a_rn_dev/models/category.dart';
+import 'package:flutter_as_a_rn_dev/common/widgets/category_icon.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<Category> categories = [
-    Category(id: 'today', name: 'Today'),
-    Category(id: 'scheduled', name: 'Scheduled'),
-    Category(id: 'all', name: 'All'),
-    Category(id: 'flagged', name: 'Flagged'),
+    Category(
+        id: 'today',
+        name: 'Today',
+        icon: CategoryIcon(
+          bgColor: CupertinoColors.systemBlue,
+          iconData: CupertinoIcons.calendar_today,
+        )),
+    Category(
+        id: 'scheduled',
+        name: 'Scheduled',
+        icon: CategoryIcon(
+            bgColor: CupertinoColors.systemRed,
+            iconData: CupertinoIcons.calendar)),
+    Category(
+        id: 'all',
+        name: 'All',
+        icon: CategoryIcon(
+          bgColor: CupertinoColors.systemGrey,
+          iconData: Icons.inbox_rounded,
+        )),
+    Category(
+        id: 'flagged',
+        name: 'Flagged',
+        icon: CategoryIcon(
+            bgColor: CupertinoColors.activeOrange,
+            iconData: CupertinoIcons.flag_fill)),
   ];
 
   @override
@@ -50,8 +74,8 @@ class HomeScreen extends StatelessWidget {
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
-                                          Icon(Icons.email),
+                                        children: [
+                                          cat.icon,
                                           Text('0'),
                                         ],
                                       ),
