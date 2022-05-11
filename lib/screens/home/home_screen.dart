@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_as_a_rn_dev/models/category_collection.dart';
 import 'package:flutter_as_a_rn_dev/screens/home/footer.dart';
 import 'package:flutter_as_a_rn_dev/screens/home/grid_view_items.dart';
+import 'package:flutter_as_a_rn_dev/screens/home/list_view_items.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -41,7 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Expanded(
-                child: GridViewItems(categoryCollection: categoryCollection)),
+                child: layoutType == 'grid'
+                    ? GridViewItems(categoryCollection: categoryCollection)
+                    : ListViewItems(
+                        categoryCollection: categoryCollection,
+                      )),
             Footer(),
           ],
         ),
